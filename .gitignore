@@ -2,6 +2,3 @@
 # Python
 *.pyc
 __pycache__/
-
-# Streamlit
-.streamlit/

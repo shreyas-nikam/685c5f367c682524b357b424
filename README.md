@@ -1,67 +1,157 @@
+# Streamlit Application: Simple Data Explorer
 
-# AI Risk Score - V4: Career Path Diversification Tool
+## Project Title and Description
 
-## Overview
+This Streamlit application, "Simple Data Explorer," provides a user-friendly interface for loading and exploring CSV data. It allows users to upload a CSV file, view the data in a tabular format, display basic descriptive statistics, and generate a simple data visualization (scatter plot). This application is designed to be a quick and easy way to get a sense of data before diving into more complex analysis. It serves as a fundamental Streamlit project, demonstrating core functionalities like file uploading, data display, and basic plotting.
 
-The "Career Path Diversification Tool" is a Streamlit application designed to help users understand and mitigate their exposure to systematic AI risk in their careers. It operationalizes the core concept of **Systematic Risk Exposure Mitigation** or **Career Path Diversification** as detailed in the provided research document "AI-Q Score: A Multi-Factor Parametric Framework for Quantifying and Mitigating AI-Driven Job Displacement Risk".
+## Features
 
-This application allows users to:
-1.  **Input their current career profile**: Provide details about their current job, education, experience, and company.
-2.  **View their current AI job displacement risk**: Calculate and display their current Idiosyncratic Risk and Systematic Risk scores, along with an estimated monthly "AI displacement insurance" premium.
-3.  **Explore alternative career paths**: Based on a synthetic dataset mimicking O*NET, the application suggests alternative career options with potentially lower systematic risk.
-4.  **Simulate career transitions**: Select a target career path and simulate the effort (e.g., skill acquisition, transition time) required to move to it, observing the real-time impact on their risk scores and insurance premium.
-5.  **Visualize risk trends**: Interactive charts illustrate how risk scores and premiums change with career transition efforts and skill development.
+*   **CSV Upload**: Allows users to upload CSV files directly into the application.
+*   **Data Display**:  Displays the uploaded data as an interactive table using Streamlit's `dataframe` function.
+*   **Descriptive Statistics**: Calculates and displays basic descriptive statistics (count, mean, standard deviation, min, max, quartiles) for numerical columns.
+*   **Scatter Plot Generation**: Generates a simple scatter plot, allowing users to choose which columns to plot on the x and y axes.
+*   **User-Friendly Interface**:  Simple and intuitive interface for easy data exploration.
+*   **Error Handling**:  Provides basic error handling for invalid file uploads and column selections.
 
-Through these features, the application demonstrates how proactive career choices and skill development can significantly influence an individual's financial risk profile in an AI-driven labor market.
-
-## How to Run the Application
+## Getting Started
 
 ### Prerequisites
 
-*   Docker (recommended)
-*   Python 3.9+ (if running locally without Docker)
+Before running the application, you'll need to have Python installed on your system. It's highly recommended to use a virtual environment to manage dependencies.  Ensure you have Python version 3.7 or higher.
 
-### Running with Docker (Recommended)
+### Installation
 
-1.  **Build the Docker Image**:
-    ```bash
-    docker build -t ai-risk-score-v4 .
-    ```
-2.  **Run the Docker Container**:
-    ```bash
-    docker run -p 8501:8501 ai-risk-score-v4
-    ```
-3.  **Access the Application**: Open your web browser and navigate to `http://localhost:8501`.
+1.  **Clone the repository (Optional if you only have the Streamlit application code)**
 
-### Running Locally (without Docker)
-
-1.  **Clone the Repository**: (Assuming you have access to the repository)
     ```bash
     git clone <repository_url>
-    cd <repository_name>
+    cd <project_directory>
     ```
-2.  **Create a Virtual Environment (Optional but Recommended)**:
+
+2.  **Create a virtual environment (recommended):**
+
     ```bash
     python -m venv venv
-    source venv/bin/activate # On Windows, use `venv\Scripts\activate`
     ```
-3.  **Install Dependencies**:
+
+3.  **Activate the virtual environment:**
+
+    *   **On Windows:**
+
+        ```bash
+        venv\Scripts\activate
+        ```
+
+    *   **On macOS and Linux:**
+
+        ```bash
+        source venv/bin/activate
+        ```
+
+4.  **Install the required packages:**
+
+    Create a `requirements.txt` file with the following content:
+
+    ```
+    streamlit
+    pandas
+    matplotlib
+    ```
+
+    Then, install the dependencies:
+
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Run the Streamlit Application**:
+
+## Usage
+
+1.  **Run the Streamlit application:**
+
+    Navigate to the directory containing the Streamlit application file (`your_app_name.py` - if you just have the code, place it in a directory of your choosing) and run the following command:
+
     ```bash
-    streamlit run app.py
+    streamlit run your_app_name.py  # Replace your_app_name.py with the actual filename
     ```
-5.  **Access the Application**: Open your web browser; Streamlit will typically open a new tab at `http://localhost:8501`.
 
-## Application Structure
+2.  **Using the Application:**
 
-*   `app.py`: The main Streamlit application file.
-*   `requirements.txt`: Lists all Python dependencies.
-*   `Dockerfile`: Docker configuration for containerization.
-*   `README.md`: This file.
-*   `utils/`: Directory containing helper modules:
-    *   `data_loader.py`: Handles loading of synthetic datasets.
-    *   `risk_calculator.py`: Implements all the mathematical formulas for risk calculation.
-    *   `visualization_utils.py`: Contains functions for generating Plotly charts.
+    *   The application will open in your web browser.
+    *   Click the "Browse files" button to upload a CSV file.
+    *   The uploaded data will be displayed in a table.
+    *   Descriptive statistics will be shown below the table.
+    *   Use the dropdown menus to select the columns for the x and y axes of the scatter plot.
+    *   The generated scatter plot will be displayed.
+
+## Project Structure
+
+```
+Simple_Data_Explorer/  # Root directory
+├── your_app_name.py  # The main Streamlit application file
+├── requirements.txt # List of dependencies
+└── README.md       # This file (Project documentation)
+```
+
+## Technology Stack
+
+*   **Streamlit**: Web framework for building interactive data applications.
+*   **Pandas**: Data analysis and manipulation library.
+*   **Matplotlib**:  Plotting library for creating visualizations.
+*   **Python**: Programming language.
+
+## Contributing
+
+We welcome contributions to improve the "Simple Data Explorer" application!  Please follow these guidelines:
+
+1.  Fork the repository.
+2.  Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name`
+3.  Make your changes and commit them with clear, descriptive messages.
+4.  Test your changes thoroughly.
+5.  Push your branch to your forked repository: `git push origin feature/your-feature-name`
+6.  Create a pull request to the main branch of the original repository.
+
+Your pull request will be reviewed, and we may request changes before merging.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE) - see the `LICENSE` file for details.  If you don't have a LICENSE file, create one and add the MIT license or other appropriate license. You can create the license file as follows:
+
+```bash
+touch LICENSE
+```
+
+Then paste in the content of the MIT license, which is as follows:
+
+```
+MIT License
+
+Copyright (c) [year] [fullname]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+Remember to replace `[year]` and `[fullname]` with the current year and your name or the project's author name.
+
+## Contact
+
+For questions or feedback, please contact:
+
+*   [Your Name/Organization Name]
+*   [Your Email Address or Project Website]

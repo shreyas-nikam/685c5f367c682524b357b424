@@ -91,9 +91,9 @@ def load_synthetic_data():
 
     education_data = {
         'High School': {'f_level': 1.15},
-        'Associate's': {'f_level': 1.10},
-        'Bachelor's': {'f_level': 1.00},
-        'Master's': {'f_level': 0.90},
+        'Associate\'s': {'f_level': 1.10},
+        'Bachelor\'s': {'f_level': 1.00},
+        'Master\'s': {'f_level': 0.90},
         'PhD': {'f_level': 0.85},
     }
 

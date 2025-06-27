@@ -137,24 +137,24 @@ with col1:
     education_level = st.selectbox(
         "Highest Education Level",
         options=list(education_data.keys()),
-        index=list(education_data.keys()).index('Bachelor's')
+        index=list(education_data.keys()).index("Bachelor's")
     )
     education_field = st.selectbox(
         "Education Field",
         options=list(education_field_data.keys()),
-        index=list(education_field_data.keys()).index('STEM (Science, Technology, Engineering, Math)')
+        index=list(education_field_data.keys()).index("STEM (Science, Technology, Engineering, Math)")
     )
 
 with col2:
     school_tier = st.selectbox(
         "Institution Tier",
         options=list(school_tier_data.keys()),
-        index=list(school_tier_data.keys()).index('Tier 2 (Reputable State/Private)')
+        index=list(school_tier_data.keys()).index("Tier 2 (Reputable State/Private)")
     )
     company_type = st.selectbox(
         "Current Company Type",
         options=list(company_type_data.keys()),
-        index=list(company_type_data.keys()).index('Large Established Firm (Non-Tech)')
+        index=list(company_type_data.keys()).index("Large Established Firm (Non-Tech)")
     )
     initial_gen_skill_progress = st.slider(
         "Current General Skill Acquisition Progress (%)",
@@ -305,7 +305,7 @@ fig_comparison = plot_risk_breakdown(current_scores_dict, simulated_scores_dict)
 st.plotly_chart(fig_comparison, use_container_width=True)
 
 st.markdown("### Systematic Risk & Premium During Career Transition")
-st.markdown("""
+st.markdown(r"""
 This chart illustrates how your **Systematic Risk** and **Monthly Premium** gradually shift
 from your current job's risk profile to the target job's profile over the
 **Time-to-Value (TTV)** period. This shows the benefit of career diversification.
@@ -342,7 +342,7 @@ st.plotly_chart(fig_transition, use_container_width=True)
 
 
 st.markdown("### Idiosyncratic Risk & Premium vs. Skill Acquisition")
-st.markdown("""
+st.markdown(r"""
 This chart demonstrates how investing in **General Skills** can significantly reduce your
 **Idiosyncratic Risk** and, consequently, your **Monthly Premium**. General skills
 are broadly applicable and offer better risk reduction than firm-specific skills.

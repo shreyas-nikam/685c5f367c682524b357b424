@@ -305,6 +305,8 @@ def plot_idiosyncratic_risk_by_skills(df_skill_data):
     on Idiosyncratic Risk and Monthly Premium.
     df_skill_data should have columns: 'Skill Progress', 'Idiosyncratic Risk', 'Monthly Premium'.
     """
+    st.write("Writing the table data for idiosyncratic risk by skills")
+    st.write(df_skill_data)
     fig = px.line(df_skill_data, x='Skill Progress', y=['Idiosyncratic Risk', 'Monthly Premium'],
                   title='Impact of Skill Acquisition on Idiosyncratic Risk & Premium',
                   labels={'value': 'Score / Premium ($)', 'variable': 'Metric'},
@@ -331,7 +333,8 @@ def plot_risk_breakdown(current_scores, simulated_scores):
         'Scenario': ['Current'] * 3 + ['Simulated'] * 3
     }
     df = pd.DataFrame(data)
-
+    st.write("Writing the table data for risk breakdown")
+    st.write(df)
     fig = px.bar(df, x='Risk Type', y='Value', color='Scenario', barmode='group',
                  title='Comparison: Current vs. Simulated Risk & Premium',
                  labels={'Value': 'Score / Premium ($)', 'Risk Type': 'Risk Component'},

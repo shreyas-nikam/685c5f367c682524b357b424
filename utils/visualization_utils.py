@@ -1,6 +1,7 @@
 
 import plotly.express as px
 import pandas as pd
+import streamlit as st
 
 def plot_risk_over_transition(df_transition_data):
     """
@@ -11,8 +12,16 @@ def plot_risk_over_transition(df_transition_data):
     fig = px.line(df_transition_data, x='Months Elapsed', y=['Systematic Risk', 'Monthly Premium'],
                   title='Systematic Risk & Monthly Premium Over Transition Period',
                   labels={'value': 'Score / Premium ($)', 'variable': 'Metric'},
-                  hover_data={'Months Elapsed': True, 'Systematic Risk': ':.2f', 'Monthly Premium': ':.2f'})
+                  
+                  color_discrete_sequence=px.colors.qualitative.Set1)
     fig.update_layout(hovermode="x unified")
+    fig.update_layout(legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ))
     return fig
 
 def plot_idiosyncratic_risk_by_skills(df_skill_data):
@@ -24,7 +33,7 @@ def plot_idiosyncratic_risk_by_skills(df_skill_data):
     fig = px.line(df_skill_data, x='Skill Progress', y=['Idiosyncratic Risk', 'Monthly Premium'],
                   title='Impact of Skill Acquisition on Idiosyncratic Risk & Premium',
                   labels={'value': 'Score / Premium ($)', 'variable': 'Metric'},
-                  hover_data={'Skill Progress': ':.0%', 'Idiosyncratic Risk': ':.2f', 'Monthly Premium': ':.2f'})
+                  )
     fig.update_layout(hovermode="x unified")
     return fig
 
@@ -47,9 +56,8 @@ def plot_risk_breakdown(current_scores, simulated_scores):
         'Scenario': ['Current'] * 3 + ['Simulated'] * 3
     }
     df = pd.DataFrame(data)
-
     fig = px.bar(df, x='Risk Type', y='Value', color='Scenario', barmode='group',
                  title='Comparison: Current vs. Simulated Risk & Premium',
                  labels={'Value': 'Score / Premium ($)', 'Risk Type': 'Risk Component'},
-                 hover_data={'Value': ':.2f'})
+                 )
     return fig
